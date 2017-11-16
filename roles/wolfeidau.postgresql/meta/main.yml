@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Mark Wolfe
+  description: Installs and configures the PostgreSQL.
+  company: Ninja Blocks
+  license: MIT
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+
+  categories:
+    - database

@@ -1,0 +1,5 @@
+---
+# vars file for ansible-postgresql
+postgres_user_password: ""
+internal_ip_ranges:
+  - "172.16.0.0/16"

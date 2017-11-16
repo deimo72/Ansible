@@ -1,0 +1,22 @@
+---
+- hosts: all
+  tasks:
+     - name: Crea directorio descargas
+       file: path=/tmp/descargas state=directory mode=0755 owner=dmoreno
+
+     - name: Descarga Logo
+       get_url: url=http://blog.itlinux.cl/images/logo_mini.png dest=/tmp/descargas/logo_mini.png
+
+     - name: Descargar Imagen Ansible  
+       get_url: url=http://blog.itlinux.cl/images/ansible_playbooks.png dest=/tmp/descargas/ansible.png
+
+       #- name: Borrar archivo
+       #command: rm /tmp/descargas/logo_mini.png
+
+     - name: remove web dir contents
+       file: path='/tmp/descargas/borrar.txt' state=absent
+
+       # - name: remove web dir contents
+       #file: path='/home/mydata/web/{{ item }}' state=absent
+       #with_fileglob:
+       #- /home/mydata/web/*

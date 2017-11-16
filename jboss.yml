@@ -1,0 +1,9 @@
+---
+- hosts: local
+  remote_user: dmoreno
+  sudo: yes
+
+  roles:
+    - jboss-standalone
+
+

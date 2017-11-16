@@ -1,0 +1,26 @@
+---
+# tasks file for ansible-postgresql
+- name: install postgres
+  dnf: pkg={{ item }}
+  with_items:
+    - libpqxx-devel
+    - postgresql
+    - postgresql-contrib
+    - python-psycopg2
+
+- name: change postgres user password
+  user: name=postgres password={{postgres_user_password}}
+
+- name: copy pg_hba.conf
+  template: src=pg_hba.conf.j2 dest=/etc/postgresql/9.3/main/pg_hba.conf
+  notify: restart postgres
+
+- name: Create backups directory structure
+  file: path=$item state=directory owner=postgres
+  with_items:
+  - /var/lib/postgresql/9.3/backups
+  - /var/lib/postgresql/9.3/backups/daily
+
+- cron: name="daily pg backup"
+        hour=2 minute=50 user="postgres"
+        job='pg_dumpall | gzip > /var/lib/postgresql/9.3/backups/daily/$(date "+\%Y_\%m_\%d-\%H_\%M_\%S.sql.gz")'

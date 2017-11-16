@@ -1,0 +1,12 @@
+---
+- hosts: local
+  remote_user: dmoreno
+  sudo: yes
+  tasks:
+   - name: Instalar Nginx
+     dnf: name=nginx state=present
+
+   - name: Iniciar Nginx
+     service: name=nginx enabled=yes state=started
+     become: yes
+

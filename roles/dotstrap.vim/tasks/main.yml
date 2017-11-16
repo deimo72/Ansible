@@ -1,0 +1,35 @@
+---
+- name: install | vimrc
+  get_url:
+    url: "{{ vimrc.url }}"
+    dest: "{{ vimrc.dest }}"
+  tags:
+    - bootstrap
+    - bootstrap_vim
+    - configure
+    - configure_vim
+    - update
+    - update_vim
+
+- block: 
+    - name: setup | vim-plug directory
+      file: path="{{ vim_config_dir }}/autoload" state=directory
+
+    - name: install | vim-plug
+      get_url:
+        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        dest: "{{ vim_config_dir }}/autoload/plug.vim"
+        force: yes
+
+    - name: install | plugins
+      command: "vim '+silent! +PlugUpdate!' +qall!"
+  tags:
+    - bootstrap
+    - bootstrap_vim
+    - configure
+    - configure_vim
+    - plugin
+    - plugin_vim
+    - update
+    - update_vim
+

@@ -1,0 +1,35 @@
+sudo ansible-playbook -i hosts playbook.yml -C -k -K ---> Con el -C Para simular
+
+Se ejecuta y se usa el password de dmoreno en ambos casos
+
+Funciono con http://www.mastertheboss.com/howto/jboss-config/provisioning-wildfly-10-with-ansible en el main.yml se uso dnf ya que el yum falla en fedora 26. En otras ocasiones si funciona
+
+sudo ansible-playbook -i hosts detener-nginx.yml -k -K   ---> Este solo deteniene un servicio
+
+sudo ansible-playbook -i hosts nginx.yml -k -K -------> Con este se instala Nginx e inicia el servicio
+
+sudo ansible-playbook -i hosts vault.yml -k -K --ask-vault-pass ---> Pide la clave del Vault
+
+ansible localhost -m setup
+
+ansible localhost -m setup -a "filter=ansible_distribution*"
+
+sudo ansible bbr -m setup -a "filter=ansible_distribution*" -k -K --> La primera clave es de ipa la segunda es de sudo
+
+ansible bbr --list-hosts -i hosts
+
+ansible bbr -a "date" -k
+
+ansible bbr -a "cat /root/.ssh/authorized_keys" -k --sudo o -s
+
+
+
+Listado de lo YML que funcionan
+-------------------------------
+playbook.yml
+dd.yml
+jboos.yml
+zsh.yml
+detener-nginx.yml
+nginx.yml
+postgresql.yml

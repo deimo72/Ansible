@@ -1,0 +1,10 @@
+---
+- hosts: local
+  remote_user: dmoreno
+  sudo: yes
+  tasks:
+   - name: Detener Nginx
+     service: name=nginx state=stopped
+     become: yes
+
+
