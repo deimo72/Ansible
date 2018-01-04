@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    #- name: agregando el fichero de configuracion
+    - copy: src=/etc/ansible/template/.bashrc dest=/root/.bashrc 
+    - name: Modificando permisos del fichero de config
+      file: dest=/root/.bashrc mode=644 owner=root group=root
+ 

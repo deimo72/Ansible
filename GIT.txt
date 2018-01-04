@@ -1,0 +1,11 @@
+
+En el directorio del proyecto si deseo eliminar archivos como en este caso los *.retry debo hacer lo siguiente
+
+rm *.retry
+git status
+git add --all
+git commit -m 'Eliminado'
+git status -v
+git push origin master
+
+

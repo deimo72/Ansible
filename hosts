@@ -1,10 +1,10 @@
 [local]
 127.0.0.1
 
-[bbr]
-as1.lapolar.b2b ansible_ssh_user=dmoreno
-mifarma33test.mifarma.b2b ansible_ssh_user=dmoreno
+#[bbr]
+#as1.lapolar.b2b ansible_ssh_user=dmoreno
+#mifarma33test.mifarma.b2b ansible_ssh_user=dmoreno
 
-[local:vars]
-ansible_python_interpreter=/usr/bin/python3
+#[local:vars]
+#ansible_python_interpreter=/usr/bin/python3
 
