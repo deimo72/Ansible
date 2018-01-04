@@ -22,6 +22,9 @@ ansible bbr -a "date" -k
 
 ansible bbr -a "cat /root/.ssh/authorized_keys" -k --sudo o -s
 
+https://www.adictosaltrabajo.com/tutoriales/cifrado-de-informacion-sensible-con-ansible-vault/ ---> Instrucciones detalladas para cifrar y descifrar
+
+ansible-vault decrypt vault.yml
 
 
 Listado de lo YML que funcionan
