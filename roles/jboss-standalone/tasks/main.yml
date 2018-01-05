@@ -4,7 +4,16 @@
   with_items:
    - unzip
    - java-1.8.0-openjdk
-  
+  when: ansible_distribution == 'Fedora'
+
+- name: Install Java 1.8 and some basic dependencies
+  yum: name={{item}} state=present
+  with_items:
+   - unzip
+   - java-1.8.0-openjdk
+  when: ansible_distribution == 'CentOS'
+
+
 - name: Download WildFly from jboss.org
   get_url: url=http://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.zip dest=/opt/wildfly-10.0.0.Final.zip
   

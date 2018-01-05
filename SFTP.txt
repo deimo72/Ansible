@@ -1,0 +1,16 @@
+Cuando se ejecuta da un Warning que hace referencia a SCP y SFTP y manda a ejecutar
+
+ANSIBLE_DEBUG=1 ansible-playbook bashrc_root.yml
+
+Para resolver esto se debe modificar el sshd_config en ansible tal como se muestra en la siguiente instruccion
+
+At least for SFTP this can be fixed by using the internal-sftp subsystem, as that does not read .bashrc or /etc/motd.
+
+Simply change the /etc/ssh/sshd_config file and change the SFTP subsystem:
+
+#Subsystem sftp /usr/lib/openssh/sftp-server
+Subsystem sftp internal-sftp
+
+y reiniciar el servicio
+
+systemctl restart sshd.service

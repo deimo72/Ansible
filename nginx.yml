@@ -1,10 +1,15 @@
 ---
 - hosts: local
-  remote_user: dmoreno
-  sudo: yes
+#  remote_user: dmoreno
+#  sudo: yes
   tasks:
-   - name: Instalar Nginx
+   - name: Instalar Nginx Fedora
      dnf: name=nginx state=present
+     when: ansible_distribution == 'Fedora'
+
+   - name: Instalar Nginx CentOS
+     yum: name=nginx state=present
+     when: ansible_distribution == 'CentOS'
 
    - name: Iniciar Nginx
      service: name=nginx enabled=yes state=started

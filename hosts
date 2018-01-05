@@ -1,5 +1,6 @@
 [local]
 127.0.0.1
+#alias ansible_host=127.0.0.1 ansible_ssh_transfer_method=scp
 
 #[bbr]
 #as1.lapolar.b2b ansible_ssh_user=dmoreno

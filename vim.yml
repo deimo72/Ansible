@@ -1,5 +1,5 @@
 ---
 - hosts: all
   tasks:
-    - name: asegurarse que vim esta en la ultima version
+    - name: Se asegura que Vim esta en la ultima version
       yum: name=vim state=latest

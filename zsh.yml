@@ -1,9 +1,13 @@
 ---
 - hosts: local
-  remote_user: dmoreno
-  sudo: yes
+#  remote_user: dmoreno
+#  sudo: yes
   tasks:
-   - name: Instalar zlib
+   - name: Instalar zlib Fedora
      dnf: name=zsh state=latest
+     when: ansible_distribution == 'Fedora'
 
 
+   - name: Instalar zlib Centos
+     yum: name=zsh state=latest
+     when: ansible_distribution == 'CentOS'

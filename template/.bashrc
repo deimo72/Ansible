@@ -1,4 +1,4 @@
-## Creado por Ansible
+## Modificado por Ansible
 
 # .bashrc
 
