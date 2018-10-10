@@ -1,3 +1,5 @@
+ansible-playbook -K flatpak.yml -C --> Internamente posee el Become para hacer sudo
+
 sudo ansible-playbook -i hosts playbook.yml -C -k -K ---> Con el -C Para simular
 
 Se ejecuta y se usa el password de dmoreno en ambos casos
