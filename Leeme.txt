@@ -1,3 +1,13 @@
+ansible vagrant -m raw -a "yum install -y python2 python-simplejson" -i inventory.ini -k -K ( el archivo inventori.ini tiene configurado
+
+[vagrant]
+192.168.100.46
+
+[vagrant:vars]
+ansible_user=root
+ansible_become_user=root
+-----------------------------------------------------------------------------------------------------------------
+
 ansible-playbook -K flatpak.yml -C --> Internamente posee el Become para hacer sudo
 
 sudo ansible-playbook -i hosts playbook.yml -C -k -K ---> Con el -C Para simular
