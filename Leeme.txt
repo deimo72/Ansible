@@ -8,6 +8,8 @@ ansible_user=root
 ansible_become_user=root
 -----------------------------------------------------------------------------------------------------------------
 
+ansible-playbook -i inventory.ini BD-PG.yml -K -k -vvvv --limit "inca" --> el --limit se usa para especificar un grupo dentro del inventori.ini
+
 ansible-playbook -K flatpak.yml -C --> Internamente posee el Become para hacer sudo
 
 sudo ansible-playbook -i hosts playbook.yml -C -k -K ---> Con el -C Para simular
