@@ -1,0 +1,34 @@
+- hosts: all
+  become: yes
+  gather_facts: yes #IMPORTANT
+  #remote_user: root
+  
+  tasks:
+      - name: Instalación de Paquetes
+        yum: name={{ item }} state=latest
+        with_items:
+        - vim
+        - net-tools
+        - htop
+        #- net-snmpd*
+        - nfs-utils
+        #- w3m
+        #- ntpdate
+
+      #- name: Instalación de Git
+      #  yum: 
+      #      name: git 
+      #      state: present
+
+      - name: Instalación de Apache
+        yum:
+            name: httpd
+            state: latest
+
+      - name: Iniciar HTTP
+        service: 
+                name: ntpd 
+                enabled: yes 
+                state: restarted
+           
+

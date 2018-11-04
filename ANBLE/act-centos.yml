@@ -1,0 +1,17 @@
+# This playbook update all CentOS hosts.
+#
+# Copyright (c) 2018 Deibis Moreno <deimo72@gmail.com>
+#
+# Licensed under CC BY 3.0. All rights reserved.
+#
+---
+- hosts: all
+  become: yes
+  remote_user: root
+
+  tasks:
+    - name: upgrade all packages
+      yum: name='*' state=latest exclude=kernel*,foo*
+      
+ 
+

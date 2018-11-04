@@ -1,0 +1,11 @@
+# Funciona correctamente para Centos 7
+#
+
+---
+- hosts: all
+  become: yes
+  gather_facts: yes #IMPORTANT
+  #remote_user: vagrant
+  roles:
+    #- epel-repository
+    - pg-repositorio

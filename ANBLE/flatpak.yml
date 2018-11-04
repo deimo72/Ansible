@@ -1,0 +1,27 @@
+# This playbook install flatpak CentOS hosts.
+#
+# Copyright (c) 2018 Deibis Moreno <deimo72@gmail.com>
+#
+# Licensed under CC BY 3.0. All rights reserved.
+#
+
+---
+- hosts: all
+  become: yes
+  remote_user: deibis
+  tasks:
+      - name: Enable Flathub repository
+        become: yes
+        command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+      #- name: Install Fractal
+      #  become: yes
+      #  command: flatpak install --assumeyes flathub org.gnome.Fractal
+      #- name: Install Spotify
+      #  become: yes
+      #  command: flatpak install --assumeyes flathub com.spotify.Client
+      - name: Install Visual Studio Code
+        become: yes
+        command: flatpak install --assumeyes flathub com.visualstudio.code
+      - name: Install Atom
+        become: yes
+        command: flatpak install --assumeyes flathub io.atom.Atom

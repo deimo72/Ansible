@@ -1,0 +1,25 @@
+- hosts: all
+  become: yes
+  gather_facts: yes #IMPORTANT
+  remote_user: root
+  
+  tasks:
+      - name: Instalación de Paquetes necesario para Autenticar en Zentyal
+        yum: name={{ item }} state=latest
+        with_items:
+        - realmd
+        - oddjob
+        - oddjob-mkhomedir
+        - sssd
+        - adcli
+        - openldap-clients
+        - policycoreutils-python
+        - samba-common
+        - samba-common-tools
+        - krb5-workstation
+        - vim 
+        - net-snmp 
+        - htop 
+        - net-tools
+        
+

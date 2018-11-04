@@ -1,0 +1,44 @@
+# Fue usado en Digital Ocean y funciona correctamente
+---
+- hosts: all
+  #gather_facts: False
+  #vars:
+  become: yes
+  #remote_user: root
+
+
+  tasks:
+      - name: Instalar libselinux-python
+        yum:  name=libselinux-python state=present
+
+      - name: Desactivar o Activar Selinux
+        selinux: 
+          state: disabled
+          register: result_selinux
+        
+      
+      - name: Rebooting servers now ...
+        command: shutdown -r now "Reinicio requerido por SELinux"
+        async: 0
+        poll: 0
+        sudo: true
+        ignore_errors: true
+     
+    
+
+      #   when: reboot_hint.stdout.find("reboot") != -1
+      #   register: rebooting
+
+      # - name: Taking a nap while servers reboot...
+      #   pause: seconds=200
+      #   when: rebooting is changed
+
+      # - name: Confirming servers are back online
+      #   wait_for:
+      #     host: "{{ ansible_ssh_host | default(inventory_hostname) }}"
+      #     delay: 30
+      #     state: started
+      #     search_regex: OpenSSH
+      #     port: 22
+      #   become: false
+      #   when: reboot is changed

@@ -1,0 +1,21 @@
+---
+- hosts: home
+  remote_user: deibis
+  become: yes
+
+  tasks:
+
+  - name: Paquete requerido por Fedora 27/28
+    dnf: 
+      name: python2-dnf 
+      state: latest
+    #when: ansible_distribution == "Fedora"
+
+  - name: upgrade all packages
+    dnf:
+      name: "*"
+      state: latest
+  - name: Autoremove unneeded packages installed as dependencies
+    dnf:
+      autoremove: yes
+    when: ansible_os_family == "RedHat"
