@@ -1,0 +1,47 @@
+---
+- name: Verifica que exista el repositorio
+  yum:
+      name: "{{ elrepo_repo_url }}"
+      state: present
+  register: result
+  when: not epel_repofile_result.stat.exists
+
+- name: Instalar Kernel Actualizado del Repositorio
+  yum: name=kernel-ml disablerepo=* enablerepo=elrepo-kernel state=present
+
+- name: Establece por defecto el inicio del nuevo Kernel.
+  template: src=grub.j2 dest=/etc/default/grub
+  #notify: restart postgres
+  register: task_result
+
+- name: Reinicia inmediatamente si hubo un cambio.
+  shell: "grub2-mkconfig -o /boot/grub2/grub.cfg && sleep 5 && reboot"
+  async: 1
+  poll: 0
+  when: task_result is changed
+
+- name: Espere a que el reinicio se complete si hubo un cambio.
+  wait_for_connection:
+    connect_timeout: 20
+    sleep: 5
+    delay: 5
+    timeout: 300
+  when: task_result is changed 
+
+# - name: Reboot
+#   reboot:
+  
+
+
+# - name: Restart server
+#   shell: sleep 2 && shutdown -r now
+#   async: 1
+#   poll: 0
+#   ignore_errors: true    
+#   changed_when: false
+#   when: change.stdout == "true"
+
+
+
+        
+  #when: task_result is changed

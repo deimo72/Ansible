@@ -11,6 +11,8 @@
         - postgresql96-server
         - postgis-utils
         - postgis24*
+        - pg_top96
+
       - name: Inicializar Base de Datos
         shell: /usr/pgsql-9.6/bin/postgresql96-setup initdb
         #postgresql-setup initdb

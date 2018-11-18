@@ -1,0 +1,17 @@
+---
+- name: 1.Verifica si existe el repositorio ELREPO
+  stat: path={{ elrepo_repofile_path }}
+  register: elrepo_repofile_result
+     
+- name: 2.Instalar ELREPO repositorio.
+  yum:
+      name: "{{ elrepo_repo_url }}"
+      state: present
+  register: result
+  when: not elrepo_repofile_result.stat.exists
+                    
+- name: 3.Importar ELREPO GPG key.
+  rpm_key:
+    key: "{{ elrepo_repo_gpg_key_url }}"
+    state: present
+  when: not elrepo_repofile_result.stat.exists
