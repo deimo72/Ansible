@@ -8,17 +8,21 @@
 ---
 - hosts: all
   become: yes
-  remote_user: deibis
+  gather_facts: False
+  remote_user: root
   tasks:
+
+      - name: Instalar Python2 
+        raw: yum install -y python2 python-simplejson
       - name: Enable Flathub repository
         become: yes
         command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
       #- name: Install Fractal
       #  become: yes
       #  command: flatpak install --assumeyes flathub org.gnome.Fractal
-      #- name: Install Spotify
-      #  become: yes
-      #  command: flatpak install --assumeyes flathub com.spotify.Client
+      - name: Install Spotify
+        become: yes
+        command: flatpak install --assumeyes flathub com.spotify.Client
       - name: Install Visual Studio Code
         become: yes
         command: flatpak install --assumeyes flathub com.visualstudio.code

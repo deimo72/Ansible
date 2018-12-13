@@ -12,7 +12,10 @@
         - postgis-utils
         - postgis24*
         - pg_top96
+<<<<<<< HEAD
         igonore_errors: true
+=======
+>>>>>>> origin
 
       - name: Inicializar Base de Datos
         shell: /usr/pgsql-9.6/bin/postgresql96-setup initdb

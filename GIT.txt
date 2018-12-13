@@ -6,6 +6,7 @@ git status
 git add --all
 git commit -m 'Eliminado'
 git status -v
-git push origin master
+git push origin master o git push --force origin master
+
 
 

@@ -1,0 +1,21 @@
+##Identar automaticamente Ctrl + shit + v
+##Comentar con Ctrl + k + ctrl + c
+## Descomentar con Ctrl + Ctrl + u
+## Buscar short cut con Ctrl + shit + p
+
+---
+- hosts: all
+  become: yes
+  gather_facts: False
+  remote_user: root
+  tasks:
+
+      # - name: Instalar Python2
+      #   raw: yum install -y python2 python-simplejson
+
+      - name: Enable Flathub Gnome GPG repository
+        command: wget https://sdk.gnome.org/nightly/keys/nightly.gpg
+
+      - name: Enable Flathub Gnome repository                                  
+        # become: yes
+        command: flatpak remote-add --gpg-import=nightly.gpg gnome-nightly https://sdk.gnome.org/nightly/repo/

@@ -1,0 +1,27 @@
+##Identar automaticamente Ctrl + shit + v
+##Comentar con Ctrl + k + ctrl + c
+## Descomentar con Ctrl + Ctrl + u
+## Buscar short cut con Ctrl + shit + p
+
+---
+- hosts: all
+  become: yes
+  gather_facts: False
+  remote_user: root
+  tasks:
+   - name: Instalar Dropbox
+     become: yes
+     command: flatpak install --assumeyes flathub com.dropbox.Client
+   - name: Instalar Torrent Transmission
+     become: yes
+     command: flatpak install --assumeyes flathub com.transmissionbt.Transmission
+   - name: Instalar Skype
+     become: yes
+     command: flatpak install --assumeyes flathub com.skype.Client
+   - name: Instalar Remmina
+     become: yes
+     command: flatpak install --assumeyes flathub org.remmina.Remmina
+   - name: Instalar Vim
+     become: yes
+     command: flatpak install --assumeyes flathub org.vim.Vim 
+        
