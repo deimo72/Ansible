@@ -1,0 +1,23 @@
+# Autenticar con Directorio Activo 
+---
+
+- name: Instalar paquetes necesarios para Autenticar con Zentyal
+  package: name={{ item }}
+           state=present
+  with_items:
+        - realmd
+        - oddjob
+        - oddjob-mkhomedir
+        - sssd
+        - adcli
+        - openldap-clients
+        - policycoreutils-python
+        - samba-common
+        - samba-common-tools
+        - krb5-workstation
+        - vim 
+        - net-snmp 
+        - htop 
+        - net-tools
+   
+

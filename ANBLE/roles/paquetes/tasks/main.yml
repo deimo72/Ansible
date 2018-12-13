@@ -1,0 +1,20 @@
+# roles/webserver/tasks/main.yml
+---
+
+- name: Instalar paquetes
+  package: name={{ item }}
+           state=present
+  with_items:
+    - htop
+    - wget
+    - net-snmp-utils
+    - iotop
+    - iftop
+    - gcc
+    - nfs-utils
+    - perl
+    - net-tools
+    - open-vm-tools
+    - vim
+   
+
