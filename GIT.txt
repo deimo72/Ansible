@@ -1,3 +1,7 @@
+Antes de iniciar a realizar cambios se debe ejecutar en el equipo
+
+git pull
+
 
 En el directorio del proyecto si deseo eliminar archivos como en este caso los *.retry debo hacer lo siguiente
 
@@ -7,6 +11,5 @@ git add --all
 git commit -m 'Eliminado'
 git status -v
 git push origin master o git push --force origin master
-
 
 

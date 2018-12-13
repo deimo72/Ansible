@@ -1,0 +1,11 @@
+# Usado para la instalacion de ERP en Netglobalis
+---
+- hosts: all
+  become: yes
+  #gather_facts: yes #IMPORTANT
+  #remote_user: vagrant
+  roles:
+    - selinux
+    - epel-repository
+    - pg-repositorio
+    - kernel-install
