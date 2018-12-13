@@ -7,5 +7,5 @@
   roles:
     - selinux
     - epel-repository
-    - pg-repositorio
+    - elrepo-repositorio
     - kernel-install
