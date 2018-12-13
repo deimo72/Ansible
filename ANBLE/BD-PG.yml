@@ -5,23 +5,26 @@
   
   tasks:
       - name: Instalación de Postgres
-        yum: name={{ item }} state=latest
+        package: name={{ item }} state=latest
         with_items:
         - postgresql96*
         - postgresql96-server
         - postgis-utils
         - postgis24*
+        - pg_top96
+        igonore_errors: true
+
       - name: Inicializar Base de Datos
         shell: /usr/pgsql-9.6/bin/postgresql96-setup initdb
         #postgresql-setup initdb
 
 
 
-      - name: Enable/Inicializar Postgres
-        service: 
-                name: postgresql-9.6 
-                enabled: yes 
-                state: started
+#      - name: Enable/Inicializar Postgres
+#        service: 
+#                name: postgresql-9.6 
+#                enabled: yes 
+#                state: started
 
 
 

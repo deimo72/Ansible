@@ -1,5 +1,5 @@
 ---
-- hosts: home
+- hosts: all
   remote_user: deibis
   become: yes
 
@@ -9,7 +9,7 @@
     dnf: 
       name: python2-dnf 
       state: latest
-    #when: ansible_distribution == "Fedora"
+    when: ansible_distribution == "Fedora"
 
   - name: upgrade all packages
     dnf:

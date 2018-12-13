@@ -1,5 +1,5 @@
 ---
-- hosts: vagrant
+- hosts: all
   gather_facts: False
 
   #pre_tasks:
@@ -12,4 +12,4 @@
 
   tasks:
       - name: Bootstrap a host without python2 installed
-        raw: dnf install -y python2 python2-dnf libselinux-python
+        raw: yum install -y python2 python2-dnf libselinux-python
