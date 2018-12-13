@@ -9,3 +9,5 @@
     - epel-repository
     - elrepo-repositorio
     - kernel-install
+    - paquetes
+    - dominio
