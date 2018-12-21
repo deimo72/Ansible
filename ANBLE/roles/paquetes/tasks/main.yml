@@ -17,5 +17,6 @@
     - open-vm-tools
     - vim
     - git
+    - ntpdate
    
 
