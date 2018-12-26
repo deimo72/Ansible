@@ -1,0 +1,11 @@
+# Comentar uso 1
+# Comentar uso 2
+---
+- hosts: local
+#  remote_user: dmoreno
+#  sudo: yes
+
+  roles:
+    - idealista.mysql-role
+
+
