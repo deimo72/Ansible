@@ -5,6 +5,7 @@
   #gather_facts: yes #IMPORTANT
   #remote_user: vagrant
   roles:
+    - python
     - selinux
     - epel-repository
     - elrepo-repositorio

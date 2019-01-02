@@ -1,0 +1,13 @@
+# ---
+# - hosts: all
+#   gather_facts: False
+
+  #pre_tasks:
+  #  - name: Install python 2 if needed with debian
+  #    raw: date 
+  #    test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  #    register: output
+  #    changed_when: False
+
+      - name: Bootstrap a host without python2 installed
+        raw: yum install -y python2 python2-dnf libselinux-python
