@@ -1,0 +1,25 @@
+---
+- hosts: webservers
+  vars:
+    ntp_server: hora.rediris.es
+  remote_user: root
+  tasks:
+  - name: Instalando ntpdate Debian
+    apt:
+      name: ntp
+      state: present
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - name: Instalando ntpdate CentOS
+    yum:
+      name: ntp
+      state: present
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  - name: agregando el fichero de configuracion
+    copy:
+      src: /root/playbooks/ntp.conf
+      dest: /etc/ntp.conf
+  handlers:
+  - name: reinicio sel servicio ntp para coger los cambios.
+    service:
+      name: ntp
+      state: restarted
