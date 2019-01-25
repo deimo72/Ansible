@@ -17,23 +17,23 @@
 - name: Instalar NetworkManager-glib paquete necesario para NMCLI
   yum: name=NetworkManager-glib state=present
 
-- name: set eth1 IPv4 address
-  nmcli:
-    conn_name: eth1
-    type: ethernet
-    ip4: 10.0.0.60/24
-    gw4: 10.0.0.1
-    dns4:
-      - 8.8.8.8
-      - 8.8.4.4
-    state: present
+#- name: set eth0 IPv4 address
+#  nmcli:
+#    conn_name: eth0
+#    type: ethernet
+#    ip4: 10.0.0.60/24
+#    gw4: 10.0.0.1
+#    dns4:
+#      - 8.8.8.8
+#      - 8.8.4.4
+#    state: present
 
-- name: ansible bug fix for static ip
-  replace:
-    path: /etc/sysconfig/network-scripts/ifcfg-eth1
-    regexp: 'BOOTPROTO=dhcp'
-    replace: 'BOOTPROTO=static'
-    backup: yes
+#- name: ansible bug fix for static ip
+#  replace:
+#    path: /etc/sysconfig/network-scripts/ifcfg-eth1
+#    regexp: 'BOOTPROTO=dhcp'
+#    replace: 'BOOTPROTO=static'
+#    backup: yes
 
 - name: Reinicia inmediatamente si hubo un cambio.
   shell: "grub2-mkconfig -o /boot/grub2/grub.cfg && sleep 5 && reboot"
