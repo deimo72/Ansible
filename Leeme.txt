@@ -1,3 +1,5 @@
+
+ansible servidores-ng -m shell -a "df -Th" -k -i inventory.ini
 ansible vagrant -m raw -a "yum install -y python2 python-simplejson" -i inventory.ini -k -K ( el archivo inventori.ini tiene configurado
 
 [vagrant]
