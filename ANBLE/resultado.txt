@@ -1,0 +1,181 @@
+192.168.101.156 | SUCCESS | rc=0 >>
+S.ficheros              Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/centos-root xfs         50G   1,9G   49G   4% /
+devtmpfs                devtmpfs    32G      0   32G   0% /dev
+tmpfs                   tmpfs       32G   4,0K   32G   1% /dev/shm
+tmpfs                   tmpfs       32G   3,2G   29G  10% /run
+tmpfs                   tmpfs       32G      0   32G   0% /sys/fs/cgroup
+/dev/sda1               xfs        497M   169M  329M  34% /boot
+/dev/mapper/centos-home xfs        215G    19G  196G   9% /home
+192.168.101.225:/nas    nfs         23T   7,9T   15T  36% /mnt/nas
+tmpfs                   tmpfs      6,3G      0  6,3G   0% /run/user/1002
+tmpfs                   tmpfs      6,3G      0  6,3G   0% /run/user/1005
+192.168.101.160 | SUCCESS | rc=0 >>
+S.ficheros              Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/centos-root xfs         49G   4,9G   44G  11% /
+devtmpfs                devtmpfs   3,9G      0  3,9G   0% /dev
+tmpfs                   tmpfs      3,9G      0  3,9G   0% /dev/shm
+tmpfs                   tmpfs      3,9G   409M  3,5G  11% /run
+tmpfs                   tmpfs      3,9G      0  3,9G   0% /sys/fs/cgroup
+/dev/sda1               xfs        497M   169M  329M  34% /boot
+/dev/mapper/centos-home xfs         24G   3,5G   20G  15% /home
+tmpfs                   tmpfs      783M      0  783M   0% /run/user/1011
+192.168.101.155 | SUCCESS | rc=0 >>
+S.ficheros                          Tipo     Tamaño Usados  Disp Uso% Montado en
+devtmpfs                            devtmpfs    32G      0   32G   0% /dev
+tmpfs                               tmpfs       32G   412K   32G   1% /dev/shm
+tmpfs                               tmpfs       32G   665M   31G   3% /run
+tmpfs                               tmpfs       32G      0   32G   0% /sys/fs/cgroup
+/dev/mapper/centos_ng--bd--sgd-root xfs         52G   3,6G   48G   7% /
+/dev/sdb1                           ext4       296G   194G   87G  69% /postgres
+/dev/sda1                           xfs       1014M   178M  837M  18% /boot
+192.168.101.225:/nas                nfs         23T   7,9T   15T  36% /mnt/nas
+tmpfs                               tmpfs      6,3G      0  6,3G   0% /run/user/0
+tmpfs                               tmpfs      6,3G      0  6,3G   0% /run/user/100001104
+192.168.101.168 | SUCCESS | rc=0 >>
+S.ficheros                   Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/centos_web7-root xfs         36G   3,9G   32G  11% /
+devtmpfs                     devtmpfs   3,9G      0  3,9G   0% /dev
+tmpfs                        tmpfs      3,9G      0  3,9G   0% /dev/shm
+tmpfs                        tmpfs      3,9G   417M  3,5G  11% /run
+tmpfs                        tmpfs      3,9G      0  3,9G   0% /sys/fs/cgroup
+/dev/sda1                    xfs        497M   207M  291M  42% /boot
+192.168.101.225:/nas         nfs         23T   7,9T   15T  36% /var/www/html/.well-known
+tmpfs                        tmpfs      783M      0  783M   0% /run/user/0
+tmpfs                        tmpfs      783M      0  783M   0% /run/user/1000
+192.168.101.176 | SUCCESS | rc=0 >>
+S.ficheros              Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/centos-root xfs         39G   1,7G   37G   5% /
+devtmpfs                devtmpfs   909M      0  909M   0% /dev
+tmpfs                   tmpfs      920M      0  920M   0% /dev/shm
+tmpfs                   tmpfs      920M    90M  831M  10% /run
+tmpfs                   tmpfs      920M      0  920M   0% /sys/fs/cgroup
+/dev/sda1               xfs        497M   196M  302M  40% /boot
+/dev/mapper/centos-home xfs         19G    33M   19G   1% /home
+tmpfs                   tmpfs      184M      0  184M   0% /run/user/0
+tmpfs                   tmpfs      184M      0  184M   0% /run/user/100001104
+192.168.101.167 | SUCCESS | rc=0 >>
+S.ficheros              Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/centos-root xfs         50G    30G   20G  60% /
+devtmpfs                devtmpfs    24G      0   24G   0% /dev
+tmpfs                   tmpfs       24G      0   24G   0% /dev/shm
+tmpfs                   tmpfs       24G   2,5G   22G  11% /run
+tmpfs                   tmpfs       24G      0   24G   0% /sys/fs/cgroup
+/dev/mapper/centos-home xfs         25G   7,4G   17G  31% /home
+/dev/sda1               xfs        497M   140M  358M  29% /boot
+192.168.101.225:/nas    nfs         23T   7,9T   15T  36% /mnt/nas
+tmpfs                   tmpfs      4,8G      0  4,8G   0% /run/user/1005
+tmpfs                   tmpfs      4,8G      0  4,8G   0% /run/user/1009
+tmpfs                   tmpfs      4,8G      0  4,8G   0% /run/user/1006
+192.168.101.146 | SUCCESS | rc=0 >>
+S.ficheros                         Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/cl_centos7--felix-root xfs         50G    20G   31G  40% /
+devtmpfs                           devtmpfs   1,9G      0  1,9G   0% /dev
+tmpfs                              tmpfs      1,9G   4,0K  1,9G   1% /dev/shm
+tmpfs                              tmpfs      1,9G   121M  1,8G   7% /run
+tmpfs                              tmpfs      1,9G      0  1,9G   0% /sys/fs/cgroup
+/dev/sda1                          xfs       1014M   251M  764M  25% /boot
+/dev/mapper/cl_centos7--felix-home xfs        202G   503M  201G   1% /home
+tmpfs                              tmpfs      380M      0  380M   0% /run/user/0
+tmpfs                              tmpfs      380M      0  380M   0% /run/user/1009
+192.168.101.175 | SUCCESS | rc=0 >>
+S.ficheros              Tipo     Tamaño Usados  Disp Uso% Montado en
+devtmpfs                devtmpfs   2,0G      0  2,0G   0% /dev
+tmpfs                   tmpfs      2,0G      0  2,0G   0% /dev/shm
+tmpfs                   tmpfs      2,0G   208M  1,8G  11% /run
+tmpfs                   tmpfs      2,0G      0  2,0G   0% /sys/fs/cgroup
+/dev/mapper/fedora-root xfs         38G    37G  1,5G  97% /
+tmpfs                   tmpfs      2,0G    64K  2,0G   1% /tmp
+/dev/sda1               ext4       477M   120M  328M  27% /boot
+tmpfs                   tmpfs      396M      0  396M   0% /run/user/0
+tmpfs                   tmpfs      396M      0  396M   0% /run/user/1008
+192.168.101.166 | SUCCESS | rc=0 >>
+S.ficheros              Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/centos-root xfs         50G   6,1G   44G  13% /
+devtmpfs                devtmpfs   911M      0  911M   0% /dev
+tmpfs                   tmpfs      921M      0  921M   0% /dev/shm
+tmpfs                   tmpfs      921M    97M  824M  11% /run
+tmpfs                   tmpfs      921M      0  921M   0% /sys/fs/cgroup
+/dev/mapper/centos-home xfs        148G   297M  148G   1% /home
+/dev/sda1               xfs        497M   207M  291M  42% /boot
+tmpfs                   tmpfs      185M      0  185M   0% /run/user/1005
+tmpfs                   tmpfs      185M      0  185M   0% /run/user/1003
+tmpfs                   tmpfs      185M      0  185M   0% /run/user/1008
+192.168.101.173 | SUCCESS | rc=0 >>
+S.ficheros                            Tipo     Tamaño Usados  Disp Uso% Montado en
+devtmpfs                              devtmpfs   7,9G      0  7,9G   0% /dev
+tmpfs                                 tmpfs      7,9G      0  7,9G   0% /dev/shm
+tmpfs                                 tmpfs      7,9G    33M  7,8G   1% /run
+tmpfs                                 tmpfs      7,9G      0  7,9G   0% /sys/fs/cgroup
+/dev/mapper/centos_ng--glassfish-root xfs         75G   2,6G   73G   4% /
+/dev/sda1                             xfs       1014M   174M  841M  18% /boot
+tmpfs                                 tmpfs      1,6G      0  1,6G   0% /run/user/100001104
+192.168.101.202 | SUCCESS | rc=0 >>
+S.ficheros              Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/centos-root xfs         18G   2,1G   16G  12% /
+devtmpfs                devtmpfs   7,8G      0  7,8G   0% /dev
+tmpfs                   tmpfs      7,8G   4,0K  7,8G   1% /dev/shm
+tmpfs                   tmpfs      7,8G    57M  7,8G   1% /run
+tmpfs                   tmpfs      7,8G      0  7,8G   0% /sys/fs/cgroup
+/dev/sdb                ext3       1,8T   787G  936G  46% /home
+/dev/sda1               xfs        497M   202M  296M  41% /boot
+192.168.101.225:/nas    nfs         23T   7,9T   15T  36% /mnt/nas
+192.168.101.225:/5tb    nfs        4,6T   1,7T  3,0T  36% /mnt/externo
+tmpfs                   tmpfs      1,6G      0  1,6G   0% /run/user/1007
+192.168.101.148 | SUCCESS | rc=0 >>
+S.ficheros              Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/centos-root xfs         50G   2,8G   48G   6% /
+devtmpfs                devtmpfs    16G      0   16G   0% /dev
+tmpfs                   tmpfs       16G   8,0K   16G   1% /dev/shm
+tmpfs                   tmpfs       16G   1,7G   14G  11% /run
+tmpfs                   tmpfs       16G      0   16G   0% /sys/fs/cgroup
+/dev/sda1               xfs        497M   165M  333M  34% /boot
+/dev/mapper/centos-home xfs         58G    37G   21G  65% /home
+192.168.101.225:/nas    nfs         23T   7,9T   15T  36% /mnt/nas
+tmpfs                   tmpfs      3,2G      0  3,2G   0% /run/user/1010
+192.168.101.140 | SUCCESS | rc=0 >>
+S.ficheros              Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/centos-root xfs         50G   2,8G   48G   6% /
+devtmpfs                devtmpfs    16G      0   16G   0% /dev
+tmpfs                   tmpfs       16G   8,0K   16G   1% /dev/shm
+tmpfs                   tmpfs       16G   1,7G   14G  11% /run
+tmpfs                   tmpfs       16G      0   16G   0% /sys/fs/cgroup
+/dev/sda1               xfs        497M   165M  333M  34% /boot
+/dev/mapper/centos-home xfs         58G    37G   21G  65% /home
+192.168.101.225:/nas    nfs         23T   7,9T   15T  36% /mnt/nas
+tmpfs                   tmpfs      3,2G      0  3,2G   0% /run/user/1010
+192.168.101.151 | SUCCESS | rc=0 >>
+S.ficheros           Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/VG-root  ext4        50G   1,5G   46G   4% /
+devtmpfs             devtmpfs    48G      0   48G   0% /dev
+tmpfs                tmpfs       48G    12K   48G   1% /dev/shm
+tmpfs                tmpfs       48G   4,1G   44G   9% /run
+tmpfs                tmpfs       48G      0   48G   0% /sys/fs/cgroup
+/dev/sdb1            ext4       788G   275G  473G  37% /postgres
+/dev/sda1            ext4       1,9G   152M  1,6G   9% /boot
+/dev/mapper/VG-home  ext4       6,8G    57M  6,4G   1% /home
+/dev/mapper/VG-var   ext4        20G   578M   18G   4% /var
+192.168.101.225:/nas nfs         23T   7,9T   15T  36% /mnt/nas
+tmpfs                tmpfs      9,5G      0  9,5G   0% /run/user/100001104
+192.168.101.180 | SUCCESS | rc=0 >>
+S.ficheros          Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/cl-root xfs         37G   7,3G   30G  20% /
+devtmpfs            devtmpfs   910M      0  910M   0% /dev
+tmpfs               tmpfs      920M      0  920M   0% /dev/shm
+tmpfs               tmpfs      920M    97M  824M  11% /run
+tmpfs               tmpfs      920M      0  920M   0% /sys/fs/cgroup
+/dev/sda1           xfs       1014M   184M  831M  19% /boot
+tmpfs               tmpfs      184M      0  184M   0% /run/user/0
+tmpfs               tmpfs      184M      0  184M   0% /run/user/1005
+192.168.101.171 | SUCCESS | rc=0 >>
+S.ficheros                      Tipo     Tamaño Usados  Disp Uso% Montado en
+/dev/mapper/centos_ng--erp-root xfs         91G    31G   61G  34% /
+devtmpfs                        devtmpfs   7,8G      0  7,8G   0% /dev
+tmpfs                           tmpfs      7,8G   8,0K  7,8G   1% /dev/shm
+tmpfs                           tmpfs      7,8G    33M  7,8G   1% /run
+tmpfs                           tmpfs      7,8G      0  7,8G   0% /sys/fs/cgroup
+/dev/sda1                       xfs       1014M   218M  797M  22% /boot
+/dev/sdb1                       ext4       197G   3,8G  183G   3% /postgres
+//192.168.101.169/shared        cifs       200G   150G   51G  75% /home/share
+192.168.101.225:/nas/mp3-sgd    nfs         23T   7,9T   15T  36% /mnt/nas/mp3-erp
+tmpfs                           tmpfs      1,6G      0  1,6G   0% /run/user/100001104
