@@ -1,6 +1,12 @@
 
+<<<<<<< HEAD
 ansible servidores-ng -m shell -a "df -Th" -k -i inventory.ini
 
+=======
+39186799 Clave de router
+
+ansible servidores-ng -m shell -a "df -Th" -k -i inventory.ini
+>>>>>>> e383febd2e69970e907a5593c00cc808b354154e
 ansible vagrant -m raw -a "yum install -y python2 python-simplejson" -i inventory.ini -k -K ( el archivo inventori.ini tiene configurado
 
 [vagrant]
