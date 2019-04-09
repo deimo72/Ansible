@@ -1,0 +1,59 @@
+db.clientes.insert(
+    [
+        {name: 'Alejandro', age: 20},
+        {name: 'Maria', age: 30},
+        {name: 'Jose', age:81}
+    ]
+)
+
+db.clientes.find({age: {$gt: 30}})
+
+db.clientes.find({age: {$gt: 15}})
+
+db.clientes.find({age: {$lt: 30}})
+
+db.clientes.find({age: {$gt: 18, $lt: 30}})
+
+
+db.clientes.insert(
+{
+    firstName: 'Zack',
+    address: {
+        city: "London"
+    }
+}
+)
+
+
+db.clientes.find( 
+    {"address.city": 'London'
+    }
+)
+
+
+db.clientes.find(
+    {name: {$regex: 'jandro'}
+    }
+)
+
+db.clientes.find().sort( 
+    {lastName: 1
+    }
+)
+
+db.clientes.find().sort( 
+    {lastName: -1
+    }
+)
+
+db.clientes.count()
+
+db.clientes.find({age: {$gt: 18}}).count()
+
+db.clientes.find().limit(3)
+
+db.clientes.find().limit(3).sort({name: -1})
+
+db.clientes.find().forEach(function(doc){ print(doc.name)})
+
+db.clientes.find().forEach(function(doc){ print(doc.lastName)})
