@@ -1,6 +1,10 @@
 
 39186799 Clave de router
 
+ansible 192.168.101.173 -b --become-user=root -m shell -a "ntpq -pn" -k -i inventory.ini  (Se usa la clave de dmoreno y se ejecuta como su)
+ansible 192.168.101.173 -b --become-method=sudo -m shell -a "ntpq -pn" -k -i inventory.ini (Se pasa el metodo de sudo)
+
+
 ansible servidores-ng -m shell -a "df -Th" -k -i inventory.ini
 
 ansible vagrant -m raw -a "yum install -y python2 python-simplejson" -i inventory.ini -k -K ( el archivo inventori.ini tiene configurado
