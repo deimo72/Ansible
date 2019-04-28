@@ -1,0 +1,44 @@
+---
+- hosts: esxi
+  connection: local
+  vars_prompt:
+  - name: "rootpassword"
+    prompt: "Enter your password to esxi"
+    private: yes
+  tasks:
+  - vsphere_guest:
+      vcenter_hostname: 192.168.0.254
+      username: root
+      password: <your_root_password>
+      validate_certs: False
+      guest: newvm001
+      state: powered_on
+      vm_extra_config:
+        vcpu.hotadd: yes
+        mem.hotadd:  yes
+        notes: This is a test VM
+      vm_disk:
+        disk1:
+          size_gb: 10
+          type: thin
+          datastore: datastore1
+          # VMs can be put into folders. The value given here is either the full path
+          # to the folder (e.g. production/customerA/lamp) or just the last component
+          # of the path (e.g. lamp):
+          folder: DARK_LAB/10_DMZ
+      vm_nic:
+        nic1:
+          type: vmxnet3
+          network: DMZ
+          network_type: standard
+      vm_hardware:
+        memory_mb: 2048
+        num_cpus: 2
+        osid: centos64Guest
+        scsi: paravirtual
+        vm_cdrom:
+          type: "iso"
+          iso_path: "datastore1/ISOS/CentOS-7-x86_64-DVD-1810.iso"
+      esxi:
+        datacenter: 192.168.0.254
+        hostname: 192.168.0.254
