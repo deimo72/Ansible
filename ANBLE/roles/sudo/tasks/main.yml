@@ -1,0 +1,16 @@
+---
+- name: Add sudo group rights for deployment user.
+  lineinfile:
+    dest: /etc/sudoers
+    regexp: '^%deibis'
+    line: 'deibis ALL=(ALL) NOPASSWD: ALL'
+    state: present
+    validate: 'visudo -cf %s'
+
+
+
+#- name: selinux off
+#  selinux:
+#    #policy: targeted
+#    state: disabled
+#  notify: reboot
