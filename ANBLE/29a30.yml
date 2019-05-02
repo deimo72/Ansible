@@ -24,7 +24,7 @@
         dnf: name=dnf-plugin-system-upgrade state=latest
 
       - name: Comando de actualización del sistema
-        shell: dnf system-upgrade download --releasever=30 -y
+        shell: dnf system-upgrade download --releasever=30 --allowerasing -y
         #when: ansible_distribution_version == "27" para usar esta opcion se debe tener el gather_facts en True pero la instalacion de raw no funcionaria
 
       - name: Reboot immediately if there was a change.
