@@ -1,0 +1,110 @@
+---
+## This playbook installs and configures AD authentication
+
+- name: Install and configure AD authentication
+  hosts: all
+  gather_facts: no
+  become: yes
+  become_method: sudo
+  vars_prompt:
+    - name: "bind_password"
+      prompt: "Password for dmoreno"
+      private: yes
+
+#  roles:
+#    - epel-repository
+#    - role: epel-repository
+#      vars:
+#         dir: '/opt/b'
+#         app_port: 5001
+  tasks:
+#ln -s /usr/share/zoneinfo/America/Santiago /etc/localtime
+# Disable SELinux
+    - selinux:
+        state: disabled
+        
+    - name: turn off selinux
+      shell: setenforce=0
+
+    - template:
+        src: sshd_config.j2
+        dest: /etc/ssh/sshd_config
+        owner: root
+        group: root
+        mode: '0600'
+        validate: /usr/sbin/sshd -t -f %s
+        backup: yes
+
+
+    - name: Install the required packages
+      yum:
+        name: realmd,sssd,oddjob,oddjob-mkhomedir,adcli,samba-common,samba-common-tools,ntpdate,ntp,tzdata,python-pip
+        state: present
+      notify:
+        - restart realmd
+
+    - name: Add DC a hosts
+      lineinfile:
+        dest: /etc/hosts
+        line: '192.168.100.198 dc01.bermanngps.corp bermanngps.corp'
+
+    - name: Install pexpect using pip
+      pip:
+        name: pexpect
+
+    - name: Nombre de Maquina
+      shell: hostnamectl set-hostname vagrant.bermanngps.corp
+
+    - name: discover realm
+      shell: /bin/bash -c "/usr/sbin/realm discover bermanngps.corp"
+                   
+    - name: join system to domain
+      expect:
+        command: "realm join dc01.bermanngps.corp --user=dmoreno"
+        responses:
+          Password*: "Tito729588"
+
+    #- name: Join system to AD and add the computer object in the Linux OU
+    #  expect:
+    #    command: /bin/bash -c "realm join --user=dmoreno bermanngps.corp"
+    #    responses:
+    #      Password for *: "Tito729588"
+      #ignore_errors: yes
+
+    - name: Add default_domain_suffix to sssd.conf
+      lineinfile:
+        dest: /etc/sssd/sssd.conf
+        line: 'default_domain_suffix = dc01.bermanngps.corp'
+        insertafter: '^\[sssd\]'
+      notify:
+        - restart sssd
+
+   #- name: Allow the LinuxAdmins AD group to logon to the system
+   #   command: /bin/bash -c "/usr/sbin/realm permit -g LinuxAdmins@yallalabs.local"
+
+    - name: Add the LinuxAdmins AD Group to sudoers
+      lineinfile:
+        dest: /etc/sudoers
+        line: '"%domain admins@bermanngps.corp"        ALL=(ALL)       NOPASSWD: ALL'
+        insertafter: '^%wheel'
+
+#    - name: Modificando permisos del fichero de sudoers
+#        file: dest=/etc/sudoers mode=0440
+#owner=root group=root
+
+
+  handlers:
+    - name: restart realmd
+      service:
+        name: realmd
+        state: restarted
+
+    - name: restart sssd
+      service:
+        name: sssd
+        state: restarted
+
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted
