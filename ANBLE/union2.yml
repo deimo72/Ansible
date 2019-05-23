@@ -26,14 +26,14 @@
     - name: turn off selinux
       shell: setenforce=0
 
-    - template:
-        src: sshd_config.j2
-        dest: /etc/ssh/sshd_config
-        owner: root
-        group: root
-        mode: '0600'
-        validate: /usr/sbin/sshd -t -f %s
-        backup: yes
+#    - template:
+#        src: sshd_config.j2
+#        dest: /etc/ssh/sshd_config
+#        owner: root
+#        group: root
+#        mode: '0600'
+#        validate: /usr/sbin/sshd -t -f %s
+#        backup: yes
 
 
     - name: Install the required packages
@@ -46,30 +46,30 @@
     - name: Add DC a hosts
       lineinfile:
         dest: /etc/hosts
-        line: '192.168.100.198 dc01.bermanngps.corp bermanngps.corp'
+        line: '192.168.101.198 dc01.bermanngps.corp bermanngps.corp'
 
     - name: Install pexpect using pip
       pip:
         name: pexpect
 
-    - name: Nombre de Maquina
-      shell: hostnamectl set-hostname vagrant.bermanngps.corp
+#    - name: Nombre de Maquina
+#      shell: hostnamectl set-hostname vagrant.bermanngps.corp
 
     - name: discover realm
       shell: /bin/bash -c "/usr/sbin/realm discover bermanngps.corp"
                    
-    - name: join system to domain
-      expect:
-        command: "realm join dc01.bermanngps.corp --user=dmoreno"
-        responses:
-          Password*: "Tito729588"
-
-    #- name: Join system to AD and add the computer object in the Linux OU
+    #- name: join system to domain
     #  expect:
-    #    command: /bin/bash -c "realm join --user=dmoreno bermanngps.corp"
+    #    command: "realm join dc01.bermanngps.corp --user=dmoreno"
     #    responses:
-    #      Password for *: "Tito729588"
-      #ignore_errors: yes
+    #      Password*: "Tito729588"
+
+    - name: Join system to AD and add the computer object in the Linux OU
+      expect:
+        command: /bin/bash -c "realm join --user=dmoreno bermanngps.corp"
+        responses:
+          Password for *: "Tito729588"
+      ignore_errors: yes
 
     - name: Add default_domain_suffix to sssd.conf
       lineinfile:
@@ -104,7 +104,7 @@
         name: sssd
         state: restarted
 
-    - name: restart sshd
-      service:
-        name: sshd
-        state: restarted
+#    - name: restart sshd
+#      service:
+#        name: sshd
+#        state: restarted
