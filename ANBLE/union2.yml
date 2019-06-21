@@ -38,7 +38,8 @@
 
     - name: Install the required packages
       yum:
-        name: realmd,sssd,oddjob,oddjob-mkhomedir,adcli,samba-common,samba-common-tools,ntpdate,ntp,tzdata,python-pip
+        name: realmd,oddjob,oddjob-mkhomedir,sssd,adcli,openldap-clients,policycoreutils-python,samba-common,samba-common-tools,krb5-workstation,python-pip
+        #realmd,sssd,oddjob,oddjob-mkhomedir,adcli,samba-common,samba-common-tools,ntpdate,ntp,tzdata,python-pip
         state: present
       notify:
         - restart realmd
@@ -46,7 +47,7 @@
     - name: Add DC a hosts
       lineinfile:
         dest: /etc/hosts
-        line: '192.168.101.198 dc01.bermanngps.corp bermanngps.corp'
+        line: '192.168.101.198 dc02 bermanngps.corp dc02.bermanngps.corp'
 
     - name: Install pexpect using pip
       pip:
@@ -66,7 +67,7 @@
 
     - name: Join system to AD and add the computer object in the Linux OU
       expect:
-        command: /bin/bash -c "realm join --user=dmoreno bermanngps.corp"
+        command: /bin/bash -c "realm join --user=dmoreno dc02.bermanngps.corp"
         responses:
           Password for *: "Tito729588"
       ignore_errors: yes
