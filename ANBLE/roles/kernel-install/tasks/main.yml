@@ -17,7 +17,7 @@
 - name: Instalar NetworkManager-glib paquete necesario para NMCLI
   yum: name=NetworkManager-glib state=present
 
-#- name: set eth0 IPv4 address
+#- name: set eth0 IPv4 address ----En el archivo /etc/yum.conf se debe agregar la linea exclude=kernel* y probar
 #  nmcli:
 #    conn_name: eth0
 #    type: ethernet
