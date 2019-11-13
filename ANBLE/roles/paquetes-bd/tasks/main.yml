@@ -1,0 +1,14 @@
+# roles/webserver/tasks/main.yml
+---
+
+- name: Instalar paquetes BD (Dependencias)
+  package: name={{ item }}
+           state=present
+  with_items:
+    - proj4
+    - gdal 
+    - geos-devel.x86_64 
+    - proj-devel.x86_64
+    - gdal-devel.x86_64
+    - libxml2-devel.x86_64
+    - json-c-devel.x86_64
