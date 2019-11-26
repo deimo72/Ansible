@@ -1,0 +1,34 @@
+# Usado para la instalacion de GlassFish en Netglobalis
+# ansible-playbook -i inventory.ini ng-glassfish.yml -k -vvvv --limit "ng-glassfish"
+---
+- hosts: ng-pelias 
+  become: yes
+  #gather_facts: yes #IMPORTANT
+  #remote_user: vagrant
+
+  tasks:
+      - name: upgrade all packages
+        yum: name='*' state=latest exclude=kernel*,foo*
+
+      - name: Add DC a hosts
+        lineinfile:
+            dest: /etc/hosts
+            line: '192.168.101.198 dc02 bermanngps.corp dc02.bermanngps.corp'
+
+      - name: Add the LinuxAdmins AD Group to sudoers
+        lineinfile:
+            dest: /etc/sudoers
+            line: '"%domain admins@bermanngps.corp"        ALL=(ALL)       NOPASSWD: ALL'
+            insertafter: '^#includedir /etc/sudoers.d'
+  roles:
+    - selinux
+    - epel-repository
+    - elrepo-repositorio
+    - kernel-install
+    - paquetes
+    - dominio
+
+    #- name: restart sssd
+    #  service:
+    #    name: sssd
+    #    state: restarted
