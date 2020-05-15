@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: local
 #  remote_user: dmoreno
 #  sudo: yes
   tasks:
@@ -7,4 +7,7 @@
        file: path=/tmp/descargas state=directory mode=0755
 
      - name: Descarga Logo de URL
-       get_url: url=https://marcianosmx.com/wp-content/uploads/2013/08/minimoo64_fractals_01.jpg
+       get_url:
+         url: https://marcianosmx.com/wp-content/uploads/2013/08/minimoo64_fractals_01.jpg
+         dest: /tmp/descargas
+         mode: 0755
