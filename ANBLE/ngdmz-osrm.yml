@@ -1,0 +1,14 @@
+# Usado para la instalacion de GlassFish en Netglobalis
+# ansible-playbook -i inventory.ini ng-glassfish.yml -k -vvvv --limit "ng-glassfish"
+---
+- hosts: ngdmz-osrm
+  become: yes
+  #gather_facts: yes #IMPORTANT
+  #remote_user: vagrant
+  roles:
+    #    - selinux
+    #    - epel-repository
+    #    - elrepo-repositorio
+    #    - kernel-install
+    - paquetes
+    #    - dominio

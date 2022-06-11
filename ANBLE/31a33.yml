@@ -1,0 +1,44 @@
+## Se debe instalar en el destino el paquete de python, python2-dnf
+## ansible vagrant -m raw -a "dnf install -y python2 python-simplejson" -i inventory.ini -k -K  
+---
+- hosts: monitor
+  gather_facts: False
+  #vars:
+  become: yes
+  #remote_user: root
+
+  tasks:
+      - name: Instalar Python2 
+        raw: yum install -y python2 python-simplejson
+
+      #- name: Instalar Python2
+      #  dnf: name=python2 state=latest 
+
+      #- name: Instalar Python-simplejson
+      #  dnf: name= state=latest
+
+      - name: Actualizar los paquetes de nuestro sistema
+        shell: dnf upgrade --refresh -y
+
+      - name: Instalar complemento
+        dnf: name=dnf-plugin-system-upgrade state=latest
+
+      - name: Comando de actualización del sistema
+        shell: dnf system-upgrade download --releasever=31 --allowerasing -y
+        #when: ansible_distribution_version == "27" para usar esta opcion se debe tener el gather_facts en True pero la instalacion de raw no funcionaria
+
+      - name: Reboot immediately if there was a change.
+        shell: dnf system-upgrade reboot #"sleep 5 && reboot"
+        async: 1
+        poll: 0
+      
+        #when: task_result is changed
+
+      - name: Wait for the reboot to complete if there was a change.
+        wait_for_connection:
+          connect_timeout: 20
+          sleep: 5
+          delay: 5
+          timeout: 300
+        
+        #when: task_result is changed
